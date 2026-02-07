@@ -275,6 +275,22 @@ section {
     }
 }
 
+/* Mobile: stack home layout vertically, image below text */
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem 5% 5rem;
+  }
+  .home-img img {
+    width: 200px;
+    height: 200px;
+  }
+  .home-content {
+    width: 100%;
+  }
+}
+
 
 .project img {
   width: 100%;
@@ -646,6 +662,19 @@ section {
 .tab-btn:hover {
   background: #a259ff;
   color: black;
+}
+
+/* Mobile: stack tabs vertically */
+@media (max-width: 768px) {
+  .portfolio-tabs {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  .tab-btn {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 /* Gallery layout: one project under another, centered and aesthetic */
