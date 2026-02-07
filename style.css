@@ -479,7 +479,8 @@ section {
 
 @media (max-width: 600px) {
   .skills .project-text {
-    /* Na małych ekranach możesz jeszcze bardziej zmniejszyć padding pionowy, jeśli zajdzie taka potrzeba */
+    width: 95%;
+    max-width: none;
     padding-top: 2rem;
   }
   .skills .project-text ul {
