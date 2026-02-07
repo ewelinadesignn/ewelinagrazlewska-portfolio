@@ -74,6 +74,36 @@ nav a{
     border-bottom: 3px solid transparent;
 }
 
+/* Hamburger button (hidden on desktop, shown on small screens) */
+.hamburger{
+  display: none; /* shown via media query */
+  background: none;
+  cursor: pointer;
+  width: 44px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.4rem;
+}
+.hamburger span{
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hamburger.open span:nth-child(1){
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2){
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3){
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 nav a:hover,
 nav a.active{
     color: #a259ff;
@@ -94,6 +124,22 @@ nav a.active{
         background-color: #161616;
         border-top: 0.1rem solid rgba(0,0,0,0.1);
     }
+
+  /* Show hamburger on small screens */
+  .hamburger{
+    display: flex;
+    position: relative;
+    z-index: 250;
+    color: white;
+  }
+
+  /* ensure nav appears above page content when opened */
+  nav{
+    top: 72px; /* below header/logo */
+    right: 2rem;
+    width: calc(60% - 2rem);
+    padding: 2rem;
+  }
 
     nav.active{
         display: block;
@@ -1140,20 +1186,3 @@ header .logo img {
   header .logo img { max-height: 120px; }
 }
 
-/* Ta reguła zadziała tylko na ekranach mniejszych niż 768px */
-@media (max-width: 768px) {
-    nav ul {
-        display: flex;
-        flex-direction: column; /* Menu układa się w pionie zamiast w poziomie */
-        align-items: center;
-        padding: 0;
-    }
-
-    nav li {
-        margin: 10px 0; /* Większe odstępy, żeby łatwiej było kliknąć palcem */
-    }
-    
-    .hero-section {
-        padding: 20px; /* Zmniejszamy marginesy boczne, żeby treść nie była ściśnięta */
-    }
-}

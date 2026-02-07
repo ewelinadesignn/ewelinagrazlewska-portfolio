@@ -11,16 +11,22 @@
 </head>
 <body>              
     <header>
-      <a href="#home" class="logo" aria-label="Home">
-        <img src="EGCreate.png" alt="Logo Ewelina" loading="lazy">
-      </a>
+            <a href="#home" class="logo" aria-label="Home">
+                <img src="EGCreate.png" alt="Logo Ewelina" loading="lazy">
+            </a>
 
-      <nav>
-        <a href="#home" class="active"> Home</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#skills">Umiejętności</a>
-        <a href="#contact">Kontakt</a>
-      </nav>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="main-nav">
+                <a href="#home" class="active"> Home</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#skills">Umiejętności</a>
+                <a href="#contact">Kontakt</a>
+            </nav>
     </header>
     <section id="home" class="home">
         <div class="home-img">
@@ -542,6 +548,28 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(openPortfolioLogo, 40);
     });
   }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.querySelector('.hamburger');
+    const nav = document.getElementById('main-nav');
+    if (!btn || !nav) return;
+
+    btn.addEventListener('click', function () {
+        const isOpen = btn.classList.toggle('open');
+        nav.classList.toggle('active');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close menu when a navigation link is clicked (mobile)
+    nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            nav.classList.remove('active');
+            btn.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
 });
 </script>
 </body>
